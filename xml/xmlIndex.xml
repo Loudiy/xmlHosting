@@ -26,7 +26,7 @@
     <drivetrain>FWD</drivetrain>
     <vin>2G1WB58K089211815</vin>
     <body_style>OTHER</body_style>
-    <fuel_type>FFV</fuel_type>
+    <fuel_type>OTHER</fuel_type>
     <transmission>Automatic</transmission>
     <price>3500 USD</price>
     <address format="simple">
