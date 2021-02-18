@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<note>
-  <from>Jani</from>
-  <to>Tove</to>
-  <message>Remember me this weekend</message>
-</note>
+<listings>
+  <title>Sample Vehicles Feed</title>
+  <link rel="self" href="https://www.example.com/dealers/cars/1234/?r=vddn" />
+  <listing>
+    <vehicle_id>3456553</vehicle_id>
+    <title>Ford B-MAX ZETEC</title>
+    <description>Adjustable Steering Column, Adjustable Steering Wheel, Air Bags, Air Conditioning, Alloy Wheels, Anti Lock Brakes, Bluetooth Preparation (Phone), CD Player, CD Radio, Driver Airbag, Electric & Heated Door Mirrors, Electric Windows, Electronic Stability Programme (ESP), Front Electric Windows, Front Fog Lights, Height Adjustable Drivers Seat, Passenger Airbag, Power Assisted Steering (PAS), Power Fold &amp; Heated DoorMirrors, Rear Parking Sensor, Remote Boot Release, Remote Central Locking, Solid Paint,LOW MILEAGE WITH A FULL FORD HISTORY, SUPPLIED FROM US,</description>
+    <url>https://www.example.com/car-1234>
+    <make>Ford</make>
+    <image>
+      <url>https://www.example.com/1234/image_1.jpg</url>
+    </image>
+    <image>
+      <url>https://www.example.com/1234/image_2.jpg</url>
+    </image>
+    <image>
+      <url>https://www.example.com/1234/image_3.jpg</url>
+    </image>
+    <model>B-MAX</model>
+    <year>2015</year>
+    <mileage>
+      <value>15617</value>
+      <unit>MI</unit>
+    </mileage>
+    <drivetrain>Other</drivetrain>
+    <vin>1A2BCDEF3GH456789</vin>
+    <body_style>OTHER</body_style>
+    <fuel_type>Gasoline</fuel_type>
+    <transmission>Manual</transmission>
+    <price>9490 GBP</price>
+    <address format="simple">
+      <component name="addr1">Sample Road</component>
+      <component name="city">Carland</component>
+      <component name="region">North Test</component>
+      <component name="country">United States of America</component>
+      <component name="postal_code">12345</component>
+    </address>
+    <latitude>37.484419</latitude>
+    <longitude>-122.148406</longitude>
+    <exterior_color>White</exterior_color>
+    <state_of_vehicle>Used</state_of_vehicle>
+    <dealer_id>453356</dealer_id>
+    <vehicle_registration_plate>AB12CD</vehicle_registration_plate>
+    <fb_page_id>5636367576574</fb_page_id>
+    <dealer_communication_channel>LEAD_FORM</dealer_communication_channel>
+    <dealer_privacy_policy_url>https://www.example.com/privacy/</dealer_privacy_policy_url>
+  </listing>
+</listings>
