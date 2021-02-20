@@ -6,7 +6,7 @@ import os
 import xml.etree.ElementTree as gfg
 
 #### Define time to wait
-time_to_sleep = 1200
+time_to_sleep = 10
 
 #### URLs of the website
 url_home = "https://hermanosautosales.com"
