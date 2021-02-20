@@ -43,7 +43,7 @@ listings_link = gfg.SubElement(listings, "link")
 listings_link.set("rel", "external")
 listings_link.set("href", "https://hermanosautosales.com/newandusedcars")
 
-for url in vehicles_urls[:5]:
+for url in vehicles_urls[:1]:
     page = urlopen(url)
     soup = BeautifulSoup(page.read().decode("utf-8"), "html.parser")
     main = soup.select('div[class="i10r-detail-main"]')
