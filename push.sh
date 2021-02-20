@@ -1,4 +1,9 @@
-git pull
-git add xml/xmlIndex.xml
-git commit -m "Update catalog"
-git push
+while true
+do
+	git pull
+	python3 WebScrapper.py
+	git add xml/xmlIndex.xml
+	git commit -m "Update catalog"
+	git push
+	sleep 2m
+done
