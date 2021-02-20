@@ -206,3 +206,4 @@ while True:
     #### Frequency to update the inventory
 
     time.sleep(timee)
+    exit()
