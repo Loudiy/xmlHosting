@@ -13,7 +13,7 @@ while True:
 
     #### Setup of Selenium
     # driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.get(url_inventory)
 
     #### Get the button "Next" to navigate all the pages in the inventory
