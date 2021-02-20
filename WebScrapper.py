@@ -6,6 +6,7 @@ import os
 import xml.etree.ElementTree as gfg
 
 while True:
+    print("Program started")
     #### URLs of the website
     url_home = "https://hermanosautosales.com"
     url_inventory = url_home + "/newandusedcars"
@@ -201,4 +202,4 @@ while True:
     os.system("./push.sh")
 
     #### Frequency to update the inventory
-    time.sleep(1200)
+    time.sleep(2)
