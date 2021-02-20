@@ -5,7 +5,10 @@ import time
 import os
 import xml.etree.ElementTree as gfg
 
+timee = 10
 while True:
+
+    print(timee)
     #### URLs of the website
     url_home = "https://hermanosautosales.com"
     url_inventory = url_home + "/newandusedcars"
@@ -201,5 +204,5 @@ while True:
     os.system("./push.sh")
 
     #### Frequency to update the inventory
-    timee = 10
+
     time.sleep(timee)
