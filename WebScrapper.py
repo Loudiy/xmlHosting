@@ -5,6 +5,7 @@ import time
 import os
 import xml.etree.ElementTree as gfg
 
+print("SUCCESSSSSSSSSSSSSS\n\n\n\n\n\n\n\n\n\n\n\n")
 #### URLs of the website
 url_home = "https://hermanosautosales.com"
 url_inventory = url_home + "/newandusedcars"
