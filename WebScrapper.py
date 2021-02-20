@@ -6,7 +6,7 @@ import os
 import xml.etree.ElementTree as gfg
 
 #### Define time to wait
-time_to_sleep = 1200
+time_to_sleep = 10
 
 #### URLs of the website
 url_home = "https://hermanosautosales.com"
@@ -199,4 +199,5 @@ for url in vehicles_urls:
 tree = gfg.ElementTree(listings)
 tree.write("xml/xmlIndex.xml", encoding="utf-8", xml_declaration=True)
 
+print("sleeping " + str(time_to_sleep))
 time.sleep(time_to_sleep)
