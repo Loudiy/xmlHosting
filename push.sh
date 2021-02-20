@@ -5,5 +5,4 @@ do
 	git add xml/xmlIndex.xml
 	git commit -m "Update catalog"
 	git push
-	sleep 2m
 done
