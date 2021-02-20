@@ -201,4 +201,4 @@ while True:
     os.system("./push.sh")
 
     #### Frequency to update the inventory
-    time.sleep(1200)
+    time.sleep(10)
