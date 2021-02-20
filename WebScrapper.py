@@ -195,6 +195,3 @@ for url in vehicles_urls:
 #### Write the xml File
 tree = gfg.ElementTree(listings)
 tree.write("xml/xmlIndex.xml", encoding="utf-8", xml_declaration=True)
-
-#### Push all the changes to the git repo
-os.system("./push.sh")
