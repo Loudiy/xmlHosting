@@ -50,9 +50,10 @@ for url in vehicles_urls:
     vehicle_title = main[0].select('h4[class="i10r_detailVehicleTitle"] a')[0].get("aria-label")
     vehicle_trim = main[0].select('h4[class="i10r_detailVehicleTitle"] a span')[0].text
     if vehicle_trim == "":
-        vehicl_trim = "Other"
+        vehicle_trim = "Other"
     vehicle_id = main[0].select('div[class="i10r_features"] p[class="i10r_optStock"]')[0].text.split(" ")[-1].strip()
-    vehicle_description = soup.select('#DivNotes div[class="card-body"]')[0].text.strip()
+    # vehicle_description = soup.select('#DivNotes div[class="card-body"]')[0].text.strip()
+    vehicle_description = vehicle_title + " available now. Contact us for more information."
     vehicle_url = url
     vehicle_make = vehicle_title.split(' ')[1]
     images = soup.select('#showPhotos div[class="card-body"] div[class="row"] a')
@@ -71,24 +72,26 @@ for url in vehicles_urls:
         -1].strip()
     vehicle_vin = main[0].select('div[class="i10r_features"] p[class="i10r_optVin"]')[0].text.split(" ")[-1].strip()
     vehicle_body_style = "OTHER"
-    vehicle_transmission = main[0].select('div[class="i10r_features"] p[class="i10r_optTrans"]')[0].text.split(" ")[
-        -1].strip()
+    if "manual" in main[0].select('div[class="i10r_features"] p[class="i10r_optTrans"]')[0].text.lower():
+        vehicle_transmission = "MANUAL"
+    else:
+        vehicle_transmission = "AUTOMATIC"
     vehicle_price = main[0].select('span[class="price-4"]')[0].text[1:] + " USD"
     vehicle_fuel_type = "OTHER"
     vehicle_latitude = str(39.38134001609587)
     vehicle_longitude = str(-84.55001094834897)
     vehicle_exterior_color = main[0].select('div[class="i10r_features"] p[class="i10r_optColor"]')[0].text.split(" ")[
         -1].strip()
-    dealer_id = str(453356)
+    dealer_id = "UD022948"
     fb_page_id = str(2049585275333899)
     dealer_communication_channel = "CHAT"
     dealer_privacy_policy_url = "https://hermanosautosales.com/privacy"
 
     #### Check for issues
-    if vehicle_transmission != "AUTOMATIC" or vehicle_transmission != "MANUAL" or vehicle_transmission != "NONE":
-        vehicle_transmission = "MANUAL"
     if vehicle_drive_train == "4WD":
         vehicle_drive_train = "4X4"
+    if vehicle_drive_train == "2WD":
+        vehicle_drive_train = "2X4"
 
     #### Create the xml tree
     vehicle = gfg.SubElement(listings, "listing")
@@ -184,7 +187,7 @@ for url in vehicles_urls:
     xml_dealer_id = dealer_id
 
     dealer_name = gfg.SubElement(vehicle, "dealer_name")
-    dealer_name.text = "Allen Loudiy"
+    dealer_name.text = "Hermanos Auto Sale"
 
     dealer_phone = gfg.SubElement(vehicle, "dealer_phone")
     dealer_phone.text = "001 (513)330-5010"
