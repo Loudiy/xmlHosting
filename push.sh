@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/nessreddine/Desktop/Nessreddine/xmlHosting
+
 while true
 do
 	git pull
