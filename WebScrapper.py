@@ -109,7 +109,7 @@ for url in vehicles_urls:
     if vehicle_drive_train == "4WD":
         vehicle_drive_train = "4X4"
     if vehicle_drive_train == "2WD":
-        vehicle_drive_train = "2X4"
+        vehicle_drive_train = "4X2"
 
     #### Create the xml tree
     vehicle = gfg.SubElement(listings, "listing")
