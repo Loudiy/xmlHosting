@@ -17,15 +17,25 @@ url_inventory = url_home + "/newandusedcars"
 driver = webdriver.Chrome()
 driver.get(url_inventory)
 
+
 #### Get the button "Next" to navigate all the pages in the inventory
 button = driver.find_elements_by_css_selector('[aria-label="Next"]')
 
 #### Populate vehicles_urls
 vehicles_urls = []
-while True:
+
+page = driver.page_source
+soup = BeautifulSoup(page, features="html.parser")
+number_of_pages = soup.find_all("span", attrs={"class": "pager-summary"})
+
+number_of_pages = int([s.strip("Page: ").split(" ") for s in number_of_pages[0].text.strip().split("of")][1][0])
+counter = 1
+while counter <= number_of_pages:
+
     page = driver.page_source
     soup = BeautifulSoup(page, features="html.parser")
     vehicles = soup.find_all("div", attrs={"class": "row no-gutters invMainCell"})
+
     for vehicle in vehicles:
         vehicles_urls += [url_home + vehicle.div.a["href"]]
     try:
@@ -33,7 +43,10 @@ while True:
         time.sleep(1)
     except:
         break
+    counter += 1
 driver.close()
+
+
 
 ##### Create xml root
 listings = gfg.Element('listings')
@@ -44,11 +57,13 @@ listings_link.set("rel", "external")
 listings_link.set("href", "https://hermanosautosales.com/newandusedcars")
 
 for url in vehicles_urls:
+
     page = urlopen(url)
     soup = BeautifulSoup(page.read().decode("utf-8"), "html.parser")
     main = soup.select('div[class="i10r-detail-main"]')
-    vehicle_title = main[0].select('h4[class="i10r_detailVehicleTitle"] a')[0].get("aria-label")
-    vehicle_trim = main[0].select('h4[class="i10r_detailVehicleTitle"] a span')[0].text
+    
+    vehicle_title = main[0].select('h1[class="i10r_detailVehicleTitle"] a')[0].get("aria-label")
+    vehicle_trim = main[0].select('h1[class="i10r_detailVehicleTitle"] a span')[0].text
     if vehicle_trim == "":
         vehicle_trim = "Other"
     vehicle_id = main[0].select('div[class="i10r_features"] p[class="i10r_optStock"]')[0].text.split(" ")[-1].strip()
@@ -76,7 +91,10 @@ for url in vehicles_urls:
         vehicle_transmission = "MANUAL"
     else:
         vehicle_transmission = "AUTOMATIC"
-    vehicle_price = main[0].select('span[class="price-4"]')[0].text[1:] + " USD"
+    try:
+    	vehicle_price = main[0].select('span[class="price-4"]')[0].text[1:] + " USD"
+    except:
+    	continue
     vehicle_fuel_type = "OTHER"
     vehicle_latitude = str(39.38134001609587)
     vehicle_longitude = str(-84.55001094834897)
